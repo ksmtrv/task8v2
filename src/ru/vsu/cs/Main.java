@@ -16,7 +16,7 @@ public class Main {
         printArray(arr);
         System.out.println();
 
-        moveRow(arr, stepsR);
+        moveRows(arr, stepsR);
         moveColumns(arr, stepsC);
 
         writeFile(args, arr);
@@ -79,7 +79,7 @@ public class Main {
         }
     }
 
-    private static void moveRow(int[][] arr, int stepsR) {
+    private static void moveRows(int[][] arr, int stepsR) {
         for (int i = arr.length + stepsR; i >= 1; i--) {
             int[][] arrNew = arr.clone();
             arr[0] = arrNew[arr.length - 1];

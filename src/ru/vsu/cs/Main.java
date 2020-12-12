@@ -28,7 +28,8 @@ public class Main {
         try {
             scanner = new Scanner(input);
         } catch (FileNotFoundException fileNotFoundException) {
-            System.out.println("File not found. Enter your details:");
+            System.err.println("File not found");
+            System.exit(1);
         }
         return readArray(scanner);
     }

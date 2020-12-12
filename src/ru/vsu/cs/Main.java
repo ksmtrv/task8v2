@@ -19,6 +19,7 @@ public class Main {
         moveRows(arr, stepsR);
         moveColumns(arr, stepsC);
 
+        printArray(arr);
         writeFile(args, arr);
     }
 
@@ -52,17 +53,13 @@ public class Main {
         return scanner.nextInt();
     }
 
-    private static String printArray(int[][] arr) {
-        String stringArray = "";
+    private static void printArray(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
                 System.out.print(arr[i][j] + " ");
-                stringArray += arr[i][j] + " ";
             }
             System.out.println();
-            stringArray += "\n";
         }
-        return stringArray;
     }
 
     private static void moveColumns(int[][] arr, int stepsC) {
@@ -91,7 +88,12 @@ public class Main {
 
     private static void writeFile(String[] args, int[][] arr) throws Exception {
         FileWriter output = new FileWriter(args[1]);
-        output.write(printArray(arr));
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                output.write(arr[i][j] + " ");
+            }
+            output.write("\n");
+        }
         output.close();
     }
 }
